@@ -93,7 +93,7 @@ public class XRechnungXmlProducerTest {
 		assertThat(theXML, containsString("Explanation ipsum"));
 		assertThat(theXML, containsString("example@openweb.info"));
 		assertThat(theXML, containsString("20240314"));
-		assertThat(theXML, containsString("20241215"));
+		assertThat(theXML, containsString("20241216"));
 	}
 
 	private Properties createCustomProperties() {
