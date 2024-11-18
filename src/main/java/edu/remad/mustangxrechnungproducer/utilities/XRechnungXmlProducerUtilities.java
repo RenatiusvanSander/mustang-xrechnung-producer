@@ -23,7 +23,7 @@ public final class XRechnungXmlProducerUtilities {
 
 	public static Date localeDateTimePlus30Days(LocalDateTime localeDateTime) {
 		try {
-			return Date.from(localeDateTime.plusDays(30).toLocalDate().atStartOfDay().atZone(ZoneId.systemDefault())
+			return Date.from(localeDateTime.toLocalDate().atStartOfDay().plusDays(30).atZone(ZoneId.systemDefault())
 					.toInstant());
 		} catch (Exception e) {
 			throw new XRechnungXmlProducerUtilitiesException(
