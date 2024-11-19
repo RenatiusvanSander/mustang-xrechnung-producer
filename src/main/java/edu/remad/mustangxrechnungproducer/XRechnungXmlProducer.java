@@ -26,24 +26,44 @@ import edu.remad.tutoring2.models.ServiceContractEntity;
 import edu.remad.tutoring2.models.UserEntity;
 import edu.remad.tutoring2.models.ZipCodeEntity;
 
+/**
+ * Produces from invoice a XRechnung.xml as byte array.
+ */
 public class XRechnungXmlProducer {
 
 	private InvoiceEntity invoiceData;
 
 	private Properties customProperties;
 
+	/**
+	 * Constructor
+	 */
 	public XRechnungXmlProducer() {
 	}
 
-	public XRechnungXmlProducer(InvoiceEntity imvoideData) {
-		this.invoiceData = imvoideData;
+	/**
+	 * Constructor
+	 * 
+	 * @param invoice an invoice as {@link InvoiceEntity}
+	 */
+	public XRechnungXmlProducer(InvoiceEntity invoice) {
+		invoiceData = invoice;
 	}
 
-	public XRechnungXmlProducer(InvoiceEntity imvoideData, Properties customProperties) {
-		this.invoiceData = imvoideData;
+	/**
+	 * Constructor
+	 * 
+	 * @param invoice          an invoice as {@link InvoiceEntity}
+	 * @param customProperties customized properties
+	 */
+	public XRechnungXmlProducer(InvoiceEntity invoice, Properties customProperties) {
+		invoiceData = invoice;
 		this.customProperties = customProperties;
 	}
 
+	/**
+	 * @return Rechnung.xml as byte array
+	 */
 	public byte[] produceXmlByteArray() {
 		if (invoiceData == null) {
 			throw new XRechnungProducerException(
@@ -133,18 +153,34 @@ public class XRechnungXmlProducer {
 				getCustomProperty(XRechnungAppConstants.XRECHNUNG_SENDER_EMAIL));
 	}
 
+	/**
+	 * @return invoice as {@link InvoiceEntity}
+	 */
 	public InvoiceEntity getInvoiceData() {
 		return invoiceData;
 	}
 
+	/**
+	 * Sets invoice
+	 * 
+	 * @param invoiceData invoice as {@link InvoiceEntity} to set
+	 */
 	public void setInvoiceData(InvoiceEntity invoiceData) {
 		this.invoiceData = invoiceData;
 	}
 
+	/**
+	 * @return customized properties as {@link Properties}
+	 */
 	public Properties getCustomProperties() {
 		return customProperties;
 	}
 
+	/**
+	 * Sets customized properties
+	 * 
+	 * @param customProperties customized properties as {@link Properties}
+	 */
 	public void setCustomProperties(Properties customProperties) {
 		this.customProperties = customProperties;
 	}
