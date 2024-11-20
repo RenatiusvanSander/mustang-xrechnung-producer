@@ -14,6 +14,12 @@ public final class XRechnungXmlProducerUtilities {
 		// do not instantiate
 	}
 
+	/**
+	 * Converts {@link LocalDateTime} to {@link Date}
+	 * 
+	 * @param localeDateTime {@link LocalDateTime} to convert to {@link Date}
+	 * @return {@link Date}
+	 */
 	public static Date localeDateTimeToDate(LocalDateTime localeDateTime) {
 		try {
 			return Date.from(localeDateTime.toLocalDate().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
@@ -23,6 +29,13 @@ public final class XRechnungXmlProducerUtilities {
 		}
 	}
 
+	/**
+	 * Add 30 days to localeDateTime and converts to {@link Date}
+	 * 
+	 * @param localeDateTime {@link LocalDateTime} plus 30 days and convert to
+	 *                       {@link Date}
+	 * @return {@link Date}
+	 */
 	public static Date localeDateTimePlus30Days(LocalDateTime localeDateTime) {
 		try {
 			return Date.from(localeDateTime.toLocalDate().atStartOfDay().plusDays(30).atZone(ZoneId.systemDefault())
@@ -34,6 +47,11 @@ public final class XRechnungXmlProducerUtilities {
 		}
 	}
 
+	/**
+	 * Creates properties for JUnit tests
+	 * 
+	 * @return {@link Properties}
+	 */
 	public static Properties ceateJUnitTestProperties() {
 		Properties customProperties = new Properties();
 		customProperties.setProperty(XRechnungAppConstants.XRECHNUNG_RECIPIENT_CUSTOM_VAT, "");
